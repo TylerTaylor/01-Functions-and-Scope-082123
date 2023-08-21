@@ -70,8 +70,30 @@ const inventory = [
 // ✅ create a formatPrice(price) function that accepts a price (number) as an argument and returns the price formatted as a string.
 // formatPrice(10) => '$10.00'
 
+function formatPrice(price) {
+  // return '$' + parseFloat(price).toFixed(2);
+  return `$${parseFloat(price).toFixed(2)}`
+}
+
+const newPrice = formatPrice(10)
+console.log(newPrice)
+
 // ✅ create a blurb() function that accepts a book as an argument and returns a string in the following format:
 // 'Eloquent JavaScript: A Modern Introduction to Programming by Marjin Haverbeke is on sale for $10.00'
+
+const blurb = (book) => {
+  // const title = book.title
+  // const author = book.author
+  // const price = formatPrice(book.price)
+
+  // "destructuring"
+  const { title, author, price } = book
+
+  return `${title} by ${author} is on sale for ${formatPrice(price)}`
+}
+
+const newBlurb = blurb(inventory[0])
+console.log(newBlurb)
 
 // Demo function expression
 
@@ -81,11 +103,46 @@ const inventory = [
 
   // ✅ create an arrow function version of the formatPrice function
   
+  const formatPriceArrow = (price) => `$${parseFloat(price).toFixed(2)}`
+  
 // 💡 Practice using callbacks for iteration
 
   // ✅ Create an array of the prices of all of the books
 
+  const bookPrices = []
+
+  inventory.forEach((book) => bookPrices.push(`$${parseFloat(book.price).toFixed(2)}`))
+
+  // console.log(bookPrices)
+
   // ✅ Create an array of simplified book objects
+
+  // const simplifiedBooks = []
+  // inventory.forEach(book => {
+  //   simplifiedBooks.push({
+  //     title: book.title,
+  //     author: book.author,
+  //     price: formatPrice(book.price)
+  //   })
+  // })
+  // console.log(simplifiedBooks)
+
+  const simplifiedBooks = inventory.map(book => {
+    return {
+      title: book.title,
+      author: book.author,
+      price: formatPrice(book.price)
+    }
+  })
+  console.log(simplifiedBooks)
 
   // ✅ Create an array of strings from the inventory in the following format:
   // 'Eloquent JavaScript: A Modern Introduction to Programming by Marjin Haverbeke is on sale for $10.00'
+  // const blurbs = []
+  // inventory.forEach(book => blurbs.push(blurb(book)))
+  
+  const blurbs = inventory.map(book => blurb(book))
+  console.log(blurbs)
+
+  const mappedPrices = inventory.map((book) => formatPrice(book.price))
+  // console.log(mappedPrices)
