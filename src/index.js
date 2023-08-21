@@ -80,7 +80,7 @@ const inventory = [
 // 💡 Arrow functions vs regular functions
 
   // ✅ create an arrow function version of the formatPrice function
-
+  
 // 💡 Practice using callbacks for iteration
 
   // ✅ Create an array of the prices of all of the books
