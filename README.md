@@ -13,6 +13,5 @@
   - Loop through the array property. Within the block, invoke the callback function and pass it the array element as an argument.
   - The return value of the callback should be pushed to the new array variable.
   - Return the new array variable
-  - Test the function by passing the inventory array and one of our previous functions as its callback. (The function must take a single book as a parameter)
 - Bonus
   - Demo `.map` as a practical example of callbacks
